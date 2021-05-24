@@ -12,9 +12,9 @@
   <form action="{% url 'polls:vote' question.id %}" method="POST">
     {% csrf_token %}
     {% for choise in question.choise_set.all %}
-    <div class="form-group">
-      <input id="choise{{ forloop.counter }}" class="form-control" type="radio" name="choise" value="{{ choise.id }}">
-      <label for="choise{{ forloop.counter }}" class="form-label">{{ choise.choise_text }}</label>
+    <div class="form-check">
+      <input id="choise{{ forloop.counter }}" class="form-check-input" type="radio" name="choise" value="{{ choise.id }}">
+      <label for="choise{{ forloop.counter }}" class="form-check-label">{{ choise.choise_text }}</label>
     </div>
     {% endfor %}
     <input class="btn btn-primary" type="submit" value="Vote">
